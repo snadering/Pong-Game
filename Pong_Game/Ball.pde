@@ -8,7 +8,7 @@ class Ball {
   boolean isDone;
   boolean collision;
 
-  //Constructing the ball.
+  //Ball constructor
   Ball(float tmpX, float tmpSize) {
     this.xpos = tmpX;
     this.size = tmpSize;
@@ -32,6 +32,7 @@ class Ball {
       xpos = random(0, width);
       ypos = 10;
       isDone = false;
+      message.timeCounterNeg = 0;
     }
   }
 
@@ -42,6 +43,7 @@ class Ball {
       xpos = random(0, width);
       ypos = 10;
       collision = true;
+      message.timeCounterPos = 0;
     }
   }
 }

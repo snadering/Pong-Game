@@ -5,7 +5,7 @@ class Paddle {
   float moveSpeed;
   color c;
 
-//Constructing the paddle.
+//Paddle constructor
   Paddle(float xpos, float ypos, float x, float moveSpeed) {
     this.xpos = xpos;
     this.ypos = ypos;
@@ -34,7 +34,7 @@ class Paddle {
 
 //Displays the paddle.
   void display() {
-    c = color(112, 112, 112);
+    c = color(255, 179, 0);
     fill(c);
     rect(xpos, ypos, x, 25);
   }
