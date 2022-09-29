@@ -18,7 +18,8 @@ class GOBall{
   }
   
   void display(){
-    fill(255);
+    noStroke();
+    fill(255, 179, 0);
     ellipse(goXpos, goYpos, goSize, goSize);
     
   }

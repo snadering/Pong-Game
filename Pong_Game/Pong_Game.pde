@@ -13,20 +13,17 @@ GOBall[] goBalls;
 Lives lives;
 Message message;
 
-
+//Global variables
 int score = 0;
 boolean gameOver = false;
 int time;
-
-
-//TEEEEEST
 float ellipse1Y = 550;
 float ellipse2Y = 600;
 float ellipseSize = 10;
 float yVel = 1;
 float yVel2 = 1;
-
-
+int messageNumPos;
+int messageNumNeg;
 
 void setup() {
   fullScreen();
@@ -38,16 +35,20 @@ void setup() {
   gameOverSound = new SoundFile(this, "assets/GameOverSound.mp3");
   lifeLost = new SoundFile(this, "assets/LostLifeEffect.mp3");
   //Creating a new object for every Class.
-  gamePaddle = new Paddle(width/2, height-50, 200, 120);
+  gamePaddle = new Paddle(width/2, height-50, 200, 100);
   ball1 = new Ball(random(0, width), -20);
   lives = new Lives(3);
   message = new Message();
-  goBalls = new GOBall[20];
+  goBalls = new GOBall[3];
+  
+  //Creating instances of the GameOverBall (GOBall) Array.
+  for (int i = 0; i < goBalls.length; i++) {
+      goBalls[i] = new GOBall(random(100, width-100), random(100, height-100), 30, 2+i);
+    }
 }
 
 void draw() {
   
-
   if (!gameOver) {
     background(0, 9, 69);
     textAlign(CENTER, CENTER);
@@ -63,9 +64,10 @@ void draw() {
     ball1.move(4);
     ball1.reachedBottom();
     ball1.paddleCollide();
-    message.displayPositive(int(random(0, 2)));
-    message.displayNegative(int(random(2, 4)));
+    message.displayPositive(messageNumPos);
+    message.displayNegative(messageNumNeg);
   
+    //Continuously counting up
     message.timeCounterPos++;
     message.timeCounterNeg++;
   
@@ -115,10 +117,8 @@ void draw() {
       yVel2 *= -1;
     }
 
-    //Creating instances of the GameOverBall (GOBall) Array.
-    for (int i = 0; i < goBalls.length; i++) {
-      goBalls[i] = new GOBall(random(100, width-100), random(100, height-100), 1, 1);
-    }
+    
+    
     //Displaying the objects in the GOBall array.
     for (int i = 0; i < goBalls.length; i++) {
       goBalls[i].display();
@@ -136,6 +136,8 @@ void keyPressed() {
     reset();
   }
 }
+
+
 //Resets all the neccessary variables to to restart the game.
 void reset() {
   gameOver = false;

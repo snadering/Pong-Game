@@ -4,7 +4,7 @@ class Lives {
   int livesRemaining = 0;
 
 
-  //Constructing the lives.
+  //Lives constructor.
   Lives(int livesRemaining) {
     this.livesRemaining = livesRemaining+1;
   }

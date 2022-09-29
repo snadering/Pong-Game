@@ -33,6 +33,7 @@ class Ball {
       ypos = 10;
       isDone = false;
       message.timeCounterNeg = 0;
+      messageNumNeg = (int)random(2,4);
     }
   }
 
@@ -44,6 +45,7 @@ class Ball {
       ypos = 10;
       collision = true;
       message.timeCounterPos = 0;
-    }
+      messageNumPos = (int)random(0,2);
+    }                
   }
 }

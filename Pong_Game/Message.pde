@@ -10,22 +10,22 @@ class Message {
   Message() {
   }
 
-  void displayPositive(int n) {
-    //If the ball hits the paddle, the timer is set to 0, and will count up in draw.
+  void displayPositive(int num) {
+    //-Info: If the ball hits the paddle, the timer is set to 0, and will count up in draw.
     if(timeCounterPos < 120){
     fill(255);
     textSize(20);
     textAlign(CENTER, CENTER);
-    text(messages[n], width/2, 50);
+    text(messages[num], width/2, 50);
       }
     }
-  void displayNegative(int n){
-    //If the ball reaches the bottom, the other timer is set to 0, and will count up in draw.
+  void displayNegative(int num){
+    // -info: If the ball reaches the bottom, the timer is set to 0, and will count up in draw.
     if(timeCounterNeg < 120){
     fill(255);
     textSize(20);
     textAlign(CENTER, CENTER);
-    text(messages[n], width/2, 50);
+    text(messages[num], width/2, 50);
   }
 }
 }
